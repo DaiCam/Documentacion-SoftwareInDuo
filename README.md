@@ -1,9 +1,9 @@
 # Documentacion-SoftwareInDuo
 
-##  Herramientas de Software a usar
-# backEnd NodeJS
-# FrontEnd ReactJS  -React Native 
-# Base de Datos : SL
+##  Herramientas Software empleadas
+### backEnd NodeJS
+### FrontEnd ReactJS  -React Native 
+### Base de Datos : SL
 
 # 1. Objetivo del sistema  y Objetivos generales
 Desarrollar una aplicacion informatica para la gestion integral de un restaurante, que permita administrar reservas, recursos operativos y reportes de forma eficiente, segura y sin dependencia de conexion a internet,
@@ -46,8 +46,28 @@ Administrar la disponibilidad del personal.
 Controlar la asignación de recursos segun turnos y horarios.
 Mantener actualizada la información operativa del restaurante.
 
+# 5.Personas involucradas
+   Administrador de sistemas: configuracion general, reportes e informes.
+   Encargado del restaurante: Procesa facturacion, registra pagos, realiza cierres, consulta reportes.
+   Mozos: consulta de reservas y gestión de mesas, Informa estados de atencion.
+   Personal de cocina: consulta de pedidos y estados.
+ 
+# Casos de uso / Diagramas de flujo
 
-dejamos pasos a seguir 
-👉 3. Organigrama
-(definir roles: administrador, encargado, empleado, etc.)
+## Listar reservas:
+en esta sección se podra visualizar la lista de todas las reservas, ya sean
+finalizadas, iniciadas o pendientes.
+
+## Realizar reserva:
+Actor: Encargado / Administrador
+Flujo:
+El usuario accede al modulo o ventana de reservas.
+Ingresa fecha, horario y cantidad de personas.
+El sistema verifica disponibilidad de mesas.
+El usuario confirma la reserva.
+El sistema registra la informacion en la base de datos.
+
+ 
+
+
 
