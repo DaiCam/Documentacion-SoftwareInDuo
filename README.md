@@ -68,6 +68,45 @@ El usuario confirma la reserva.
 El sistema registra la informacion en la base de datos.
 
  
+## 6 Clases
+ ### Clase Usuario
+   idUsuario : int
+   nombre : string
+   apellido : string
+   email : string
+   contraseña : string
+   activo : boolean
 
+   ### roles
+- id_rol (PK)
+- nombre
+- descripcion
+
+  ### mesas
+- id_mesa (PK)
+- numero
+- capacidad
+- estado
+
+  ### reservas
+- id_reserva (PK)
+- fecha
+- hora
+- cantidad_personas
+- estado
+- id_mesa (FK)
+- id_usuario (FK)
+
+Metodos???
+login()
+logout()Usuario — Rol
+
+relaciones???
+Usuario — Reserva
+Reserva — Mesa
+Mesa — Factura
+Factura — DetalleFactura
+DetalleFactura — Articulo(seria el menu del restoran)
+Usuario — Informe
 
 
