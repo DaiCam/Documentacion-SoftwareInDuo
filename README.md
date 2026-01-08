@@ -77,7 +77,7 @@ El sistema registra la informacion en la base de datos.
    contraseña : string
    activo : boolean
 
-   ### roles
+  ### roles
 - id_rol (PK)
 - nombre
 - descripcion
@@ -96,6 +96,36 @@ El sistema registra la informacion en la base de datos.
 - estado
 - id_mesa (FK)
 - id_usuario (FK)
+
+  ###categoria_menu (organiza el menu)
+- id_categoria (PK)
+- nombre
+- descripcion
+
+  ###platos_menu (representa la comida y bebida del restaurante.)
+- id_articulo (PK)
+- nombre
+- descripcion
+- precio
+- disponible
+- id_categoria (FK) 
+ 
+  ###facturas (Registra la facturacion por mesa.)
+- id_factura (PK)
+- fecha
+- total
+- metodo_pago
+- id_mesa (FK)
+- id_usuario (FK)
+
+  ###detalle_factura (Contiene los articulos consumidos en cada factura.) necesario o embebemos todo en factura????
+- id_detalle (PK)
+- cantidad
+- subtotal
+- id_factura (FK)
+- id_articulo (FK)
+
+
 
 Metodos???
 login()
