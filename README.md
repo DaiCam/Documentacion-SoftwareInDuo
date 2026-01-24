@@ -38,15 +38,14 @@ Liberar mesas una vez finalizado el servicio.
 Detectar conflictos de horarios o disponibilidad.
 Visualizar el estado de ocupacion del restaurante en tiempo real.
 
-
-# Gestion de recursos
-# 4. Modulo de control
+# 3.3 Modulo de control
 Gestionar las mesas del restaurante (cantidad, capacidad, estado).
 Administrar la disponibilidad del personal.
 Controlar la asignación de recursos segun turnos y horarios.
 Mantener actualizada la información operativa del restaurante.
 
-# 5.Personas involucradas
+
+# 4.Personas involucradas
    Administrador de sistemas: configuracion general, reportes e informes.
    Encargado del restaurante: Procesa facturacion, registra pagos, realiza cierres, consulta reportes.
    Mozos: consulta de reservas y gestión de mesas, Informa estados de atencion.
@@ -68,64 +67,85 @@ El usuario confirma la reserva.
 El sistema registra la informacion en la base de datos.
 
  
-## 6 Clases
- ### Clase Usuario
-   idUsuario : int
-   nombre : string
-   apellido : string
-   email : string
-   contraseña : string
-   activo : boolean
+## 5 Clases
 
+
+ ### Usuario
+  - idUsuario : int
+  - nombre : string
+  - apellido : string
+  - email : string
+  - contraseña : string
+  - activo : boolean
+--------------------------------------------------------------
   ### roles
-- id_rol (PK)
-- nombre
-- descripcion
-
+   - id_rol (PK)
+   - nombre
+   - descripcion
+-------------------------------------------------------------
+  ### pedido
+  - id_pedido
+  - fecha_hora
+  - estado (pendiente, en preparación, listo, servido)
+  - id_mesa (FK)
+  - id_usuario (FK - mozo que tomó el pedido)
+  - observaciones
+--------------------------------------------------------------   
+  ### detalle del Pedido
+  - id_detalle_pedido
+  - id_pedido (FK)
+  - id_articulo (FK)
+  - cantidad
+  - estado (pendiente, en cocina, listo)
+  - observaciones
+-------------------------------------------------------------- 
   ### mesas
-- id_mesa (PK)
-- numero
-- capacidad
-- estado
-
+   - id_mesa (PK)
+   - numero
+   - capacidad
+   - estado
+--------------------------------------------------------------
   ### reservas
-- id_reserva (PK)
-- fecha
-- hora
-- cantidad_personas
-- estado
-- id_mesa (FK)
-- id_usuario (FK)
+   - id_reserva (PK)
+   - fecha
+   - hora
+   - cantidad_personas
+   - estado
+   - id_mesa (FK)
+   - id_usuario (FK)
+--------------------------------------------------------------
+  ### categoria_menu (organiza el menu)
+   - id_categoria (PK)
+   - nombre
+   - descripcion
+   --------------------------------------------------------------
+  ### platos_menu (representa la comida y bebida del restaurante.)
+   - id_articulo (PK)
+   - nombre
+   - descripcion
+   - precio
+   - disponible
+   - id_categoria (FK) 
+-------------------------------------------------------------- 
+  ### facturas (Registra la facturacion por mesa.)
+   - id_factura (PK)
+   - fecha
+   - total
+   - metodo_pago
+   - id_mesa (FK)
+   - id_usuario (FK)
+--------------------------------------------------------------
+  ### detalle_factura (Contiene los articulos consumidos en cada factura.) necesario o embebemos todo en factura????
+   - id_detalle (PK)
+   - cantidad
+   - subtotal
+   - id_factura (FK)
+   - id_articulo (FK)
 
-  ###categoria_menu (organiza el menu)
-- id_categoria (PK)
-- nombre
-- descripcion
-
-  ###platos_menu (representa la comida y bebida del restaurante.)
-- id_articulo (PK)
-- nombre
-- descripcion
-- precio
-- disponible
-- id_categoria (FK) 
- 
-  ###facturas (Registra la facturacion por mesa.)
-- id_factura (PK)
-- fecha
-- total
-- metodo_pago
-- id_mesa (FK)
-- id_usuario (FK)
-
-  ###detalle_factura (Contiene los articulos consumidos en cada factura.) necesario o embebemos todo en factura????
-- id_detalle (PK)
-- cantidad
-- subtotal
-- id_factura (FK)
-- id_articulo (FK)
 
 
+--------------------------------
+## A definir con pathner...
 
 Metodos???
 login()
@@ -139,4 +159,12 @@ Factura — DetalleFactura
 DetalleFactura — Articulo(seria el menu del restoran)
 Usuario — Informe
 
+caso de uso ??
 
+Caso de Uso: Realizar Reserva
+Precondiciones: Usuario autenticado con rol Encargado/Admin
+Flujo Principal: [el describimos mas arriba]
+Flujo Alternativo: 
+  - Si no hay mesas disponibles → sugerir horarios alternativos
+  - Si la fecha es pasada → mostrar error
+Postcondiciones: Reserva registrada y mesa asignada
