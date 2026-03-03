@@ -1,0 +1,170 @@
+# Documentacion-SoftwareInDuo
+
+##  Herramientas Software empleadas
+### backEnd NodeJS
+### FrontEnd ReactJS  -React Native 
+### Base de Datos : SL
+
+# 1. Objetivo del sistema  y Objetivos generales
+Desarrollar una aplicacion informatica para la gestion integral de un restaurante, que permita administrar reservas, recursos operativos y reportes de forma eficiente, segura y sin dependencia de conexion a internet,
+optimizando los procesos internos y mejorando la experiencia del personal.
+
+# 1.2 Objetivos particulares
+Permitir la gestion de reservas de mesas, incluyendo altas, modificaciones y cancelaciones.
+Facilitar la organización de mesas y horarios para evitar superposiciones.
+Optimizar la gestion de recursos del restaurante (mesas, personal, disponibilidad).
+Proveer un panel de control (dashboard) con informacion clara y actualizada.
+Generar reportes operativos para la toma de decisiones.
+Garantizar el funcionamiento del sistema en modo offline.
+Permitir el uso del sistema en tablets y telefonos moviles.
+Asegurar una interfaz intuitiva y facil de usar para el personal del restaurante.
+
+
+# 3. Alcance del sistema 
+Sistema con uso exclusivo al uso interno del restaurante, siendo utilizado por el personal autorizado (administradores, encargadors y empleados)
+Ademas de contar con la posibilida de usarse en tablets y celulares sin conexion a internet.
+
+# 3.1 Modulo de reservas
+Registrar nuevas reservas indicando fecha, horario y cantidad de personas.
+Asignar mesas disponibles segun capacidad y horario.
+Modificar reservas existentes.
+Cancelar reservas.
+Visualizar el estado de las reservas por dia y franja horaria.
+
+# 3.2 Modulo de operaciones
+Este modulo estara orientado a la operacion diaria del restaurante y permitira:
+Consultar reservas activas del dia.
+Liberar mesas una vez finalizado el servicio.
+Detectar conflictos de horarios o disponibilidad.
+Visualizar el estado de ocupacion del restaurante en tiempo real.
+
+# 3.3 Modulo de control
+Gestionar las mesas del restaurante (cantidad, capacidad, estado).
+Administrar la disponibilidad del personal.
+Controlar la asignación de recursos segun turnos y horarios.
+Mantener actualizada la información operativa del restaurante.
+
+
+# 4.Personas involucradas
+   Administrador de sistemas: configuracion general, reportes e informes.
+   Encargado del restaurante: Procesa facturacion, registra pagos, realiza cierres, consulta reportes.
+   Mozos: consulta de reservas y gestión de mesas, Informa estados de atencion.
+   Personal de cocina: consulta de pedidos y estados.
+ 
+# Casos de uso / Diagramas de flujo
+
+## Listar reservas:
+en esta sección se podra visualizar la lista de todas las reservas, ya sean
+finalizadas, iniciadas o pendientes.
+
+## Realizar reserva:
+Actor: Encargado / Administrador
+Flujo:
+El usuario accede al modulo o ventana de reservas.
+Ingresa fecha, horario y cantidad de personas.
+El sistema verifica disponibilidad de mesas.
+El usuario confirma la reserva.
+El sistema registra la informacion en la base de datos.
+
+ 
+## 5 Clases
+
+
+ ### Usuario
+  - idUsuario : int
+  - nombre : string
+  - apellido : string
+  - email : string
+  - contraseña : string
+  - activo : boolean
+--------------------------------------------------------------
+  ### roles
+   - id_rol (PK)
+   - nombre
+   - descripcion
+-------------------------------------------------------------
+  ### pedido
+  - id_pedido
+  - fecha_hora
+  - estado (pendiente, en preparación, listo, servido)
+  - id_mesa (FK)
+  - id_usuario (FK - mozo que tomó el pedido)
+  - observaciones
+--------------------------------------------------------------   
+  ### detalle del Pedido
+  - id_detalle_pedido
+  - id_pedido (FK)
+  - id_articulo (FK)
+  - cantidad
+  - estado (pendiente, en cocina, listo)
+  - observaciones
+-------------------------------------------------------------- 
+  ### mesas
+   - id_mesa (PK)
+   - numero
+   - capacidad
+   - estado
+--------------------------------------------------------------
+  ### reservas
+   - id_reserva (PK)
+   - fecha
+   - hora
+   - cantidad_personas
+   - estado
+   - id_mesa (FK)
+   - id_usuario (FK)
+--------------------------------------------------------------
+  ### categoria_menu (organiza el menu)
+   - id_categoria (PK)
+   - nombre
+   - descripcion
+   --------------------------------------------------------------
+  ### platos_menu (representa la comida y bebida del restaurante.)
+   - id_articulo (PK)
+   - nombre
+   - descripcion
+   - precio
+   - disponible
+   - id_categoria (FK) 
+-------------------------------------------------------------- 
+  ### facturas (Registra la facturacion por mesa.)
+   - id_factura (PK)
+   - fecha
+   - total
+   - metodo_pago
+   - id_mesa (FK)
+   - id_usuario (FK)
+--------------------------------------------------------------
+  ### detalle_factura (Contiene los articulos consumidos en cada factura.) necesario o embebemos todo en factura????
+   - id_detalle (PK)
+   - cantidad
+   - subtotal
+   - id_factura (FK)
+   - id_articulo (FK)
+
+
+
+--------------------------------
+## A definir con pathner...
+
+Metodos???
+login()
+logout()Usuario — Rol
+
+relaciones???
+Usuario — Reserva
+Reserva — Mesa
+Mesa — Factura
+Factura — DetalleFactura
+DetalleFactura — Articulo(seria el menu del restoran)
+Usuario — Informe
+
+caso de uso ??
+
+Caso de Uso: Realizar Reserva
+Precondiciones: Usuario autenticado con rol Encargado/Admin
+Flujo Principal: [el describimos mas arriba]
+Flujo Alternativo: 
+  - Si no hay mesas disponibles → sugerir horarios alternativos
+  - Si la fecha es pasada → mostrar error
+Postcondiciones: Reserva registrada y mesa asignada
