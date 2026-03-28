@@ -1,4 +1,4 @@
-﻿namespace ProjectRestaurant
+﻿namespace AppResto
 {
     partial class Form1
     {
