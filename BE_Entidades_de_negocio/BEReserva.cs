@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE_Entidades_de_negocio
 {
-    internal class BEReserva
+    public class BEReserva
     {
         //PROPIEDADES
         public int IdReserva { get; set; }
@@ -29,7 +29,6 @@ namespace BE_Entidades_de_negocio
             IdMesa = idMesa;
             IdUsuario = idUsuario;
         }
-
 
     }
 }

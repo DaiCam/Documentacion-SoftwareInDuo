@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE_Entidades_de_negocio
 {
-    internal class BEUsuario
+    public class BEUsuario
     {
         //PROPIEDADES
         public int IdUsuario { get; set; }
@@ -30,6 +30,6 @@ namespace BE_Entidades_de_negocio
             Contraseña = contraseña;
             Activo = activo;
         }
-    }
 
+    }
 }

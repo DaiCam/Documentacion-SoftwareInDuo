@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE_Entidades_de_negocio
 {
-    internal class BEMesa
+    public class BEMesa
     {
         //PROPIEDADES
         public int IdMesa { get; set; }
@@ -23,5 +23,6 @@ namespace BE_Entidades_de_negocio
             Capacidad = capacidad;
             Estado = estado;
         }
+
     }
 }

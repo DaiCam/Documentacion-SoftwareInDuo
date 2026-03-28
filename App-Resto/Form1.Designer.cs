@@ -1,4 +1,4 @@
-﻿namespace BE_Entidades_de_negocio
+﻿namespace AppResto
 {
     partial class Form1
     {

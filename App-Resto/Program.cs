@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BE_Entidades_de_negocio
+namespace AppResto
 {
     internal static class Program
     {
