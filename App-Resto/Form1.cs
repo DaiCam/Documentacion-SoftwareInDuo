@@ -19,7 +19,7 @@ namespace AppResto
 
         private void btnMesa1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hola amor!");
+            MessageBox.Show("Hola amor soy juan");
         }
     }
 }
