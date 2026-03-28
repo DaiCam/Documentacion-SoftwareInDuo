@@ -16,5 +16,10 @@ namespace AppResto
         {
             InitializeComponent();
         }
+
+        private void btnMesa1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hola amor!");
+        }
     }
 }
