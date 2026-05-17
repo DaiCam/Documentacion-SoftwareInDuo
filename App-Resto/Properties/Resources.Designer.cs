@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AppResto.Properties {
+namespace ProjectRestaurant.Properties {
     using System;
     
     

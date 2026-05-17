@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE_Entidades_de_negocio
+namespace BE_Entidades_de_Negocio
 {
     public class BEUsuario
     {

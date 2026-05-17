@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BEC4B433-5647-479B-BBB3-C4D75B8F86FF}</ProjectGuid>
+    <ProjectGuid>{98C2F8E4-550A-49FA-A7F2-70456CBCE894}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BE_Entidades_de_Negocio</RootNamespace>
-    <AssemblyName>BE_Entidades_de_Negocio</AssemblyName>
+    <RootNamespace>BLL_Reglas_de_Negocio</RootNamespace>
+    <AssemblyName>BLL_Reglas_de_Negocio</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,10 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BEMesa.cs" />
-    <Compile Include="BEReserva.cs" />
-    <Compile Include="BEUsuario.cs" />
-    <Compile Include="EstadoMesa.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
