@@ -5,9 +5,9 @@ VisualStudioVersion = 17.12.35521.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI_Presentacion", "App-Resto\UI_Presentacion.csproj", "{E692E921-3572-4D9D-86B2-CACCA9932BF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL_Reglas_de_Negocio", "BLL_Reglas_de_Negocios\BLL_Reglas_de_Negocio.csproj", "{98C2F8E4-550A-49FA-A7F2-70456CBCE894}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL_Reglas_de_Negocio", "BLL_Reglas_de_Negocio\BLL_Reglas_de_Negocio.csproj", "{98C2F8E4-550A-49FA-A7F2-70456CBCE894}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE_Entidades_de_Negocio", "BE_Entidades_de_negocio\BE_Entidades_de_Negocio.csproj", "{BEC4B433-5647-479B-BBB3-C4D75B8F86FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE_Entidades_de_Negocio", "BE_Entidades_de_Negocio\BE_Entidades_de_Negocio.csproj", "{BEC4B433-5647-479B-BBB3-C4D75B8F86FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
